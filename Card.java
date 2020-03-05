@@ -30,42 +30,42 @@ public class Card{
 
 	//sets the Action string to something to something
 	//Like wildcard or draw 2
-	private void setAction(String name){
+	public void setAction(String name){
 		action = name;
 	}
 
 	//sets the number of reps for this individual card
-	private void setReps(int reps){
+	public void setReps(int reps){
 		repNum = reps;
 	}
 
 	//sets the isAction boolean for future use
-	private void setType(boolean type){
+	public void setType(boolean type){
 		isAction = type;
 	}
 
 	//sets the exercise String for future use
-	private void setWorkout(String workout){
+	public void setWorkout(String workout){
 		exercise = workout;
 	}
 
 	//returns the particular action for this card
-	private String getAction(){
+	public String getAction(){
 		return action;
 	}
 
 	//returns the reps aka the number on the card
-	private int getReps(){
+	public int getReps(){
 		return repNum;
 	}
 
 	//returns whether or not the card is an action card
-	private boolean getType(){
+	public boolean getType(){
 		return isAction;
 	}
 
 	//returns the workout aka the color of the current card
-	private String getWorkout(){
+	public String getWorkout(){
 		return exercise;
 	}
 }
