@@ -1,6 +1,5 @@
 import java.util.Random;
-// This class is still incomplete and should include a getNextHand() method
-// Documentation needs to be added for all the methods.
+// This needs documentation but all the meothod structures are there
 
 // This is a stack for storing the deck of cards
 // The hand is drawn by using pop() method 7 times.
@@ -47,60 +46,112 @@ class Deck {
 
         Card[] raw_deck = new Card[num_cards];
         int n = 0;
-        while (n < num_cards) {
+
+        for (int j = 0; j < num_decks; j++) {
             Card c = new Card();
 
-            c.setWorkout("BLUE");
+            c.setWorkout("Push Ups"); // Add 10
+            c.setAction("null");
+            c.setType(false);
             for (int i = 0; i < 10; i++) {
                 c.setReps(i);
                 raw_deck[n++] = c;
             }
-            for (int i = 1; i < 10; i++) {
+            for (int i = 1; i < 10; i++) { // Add 9
                 c.setReps(i);
                 raw_deck[n++] = c;
             }
 
-            c.setWorkout("YELLOW");
-            for (int i = 0; i < 10; i++) {
+            c.setWorkout("Squat");
+            c.setAction("null");
+            c.setType(false);
+            for (int i = 0; i < 10; i++) { // Same
                 c.setReps(i);
                 raw_deck[n++] = c;
             }
-            for (int i = 1; i < 10; i++) {
-                c.setReps(i);
-                raw_deck[n++] = c;
-            }
-
-            c.setWorkout("RED");
-            for (int i = 0; i < 10; i++) {
-                c.setReps(i);
-                raw_deck[n++] = c;
-            }
-            for (int i = 1; i < 10; i++) {
+            for (int i = 1; i < 10; i++) { // Same
                 c.setReps(i);
                 raw_deck[n++] = c;
             }
 
-            c.setWorkout("GREEN");
-            for (int i = 0; i < 10; i++) {
+            c.setWorkout("Sit Ups");
+            c.setAction("null");
+            c.setType(false);
+            for (int i = 0; i < 10; i++) { // Same
                 c.setReps(i);
                 raw_deck[n++] = c;
             }
-            for (int i = 1; i < 10; i++) {
+            for (int i = 1; i < 10; i++) { // Same
+                c.setReps(i);
+                raw_deck[n++] = c;
+            }
+
+            c.setWorkout("Lounges");
+            c.setAction("null");
+            c.setType(false);
+            for (int i = 0; i < 10; i++) { // Same
+                c.setReps(i);
+                raw_deck[n++] = c;
+            }
+            for (int i = 1; i < 10; i++) { // Same
                 c.setReps(i);
                 raw_deck[n++] = c;
             }
 
             if (action_cards) {
-                c.setWorkout("BLUE");
-                for (int i = 0; i < 2; i++) {
-                    c.setAction("Push Ups");
-                    raw_deck[n++] = c;
-                    c.setAction("Squats");
-                    raw_deck[n++] = c;
-                    c.setAction("Sit Ups");
-                    raw_deck[n++] = c;
-                    c.setAction("Lounges");
-                    raw_deck[n++] = c;
+                Card a = new Card();
+                a.setWorkout("Push Ups");
+                a.setType(true);
+                a.setReps(null);
+                for (int i = 0; i < 2; i++) { // Add 8
+                    a.setAction("SKIP");
+                    raw_deck[n++] = a;
+                    a.setAction("DRAW TWO");
+                    raw_deck[n++] = a;
+                    a.setAction("REVERSE");
+                    raw_deck[n++] = a;
+                }
+                a.setWorkout("Squat");
+                a.setType(true);
+                a.setReps(null);
+                for (int i = 0; i < 2; i++) { // Same
+                    a.setAction("SKIP");
+                    raw_deck[n++] = a;
+                    a.setAction("DRAW TWO");
+                    raw_deck[n++] = a;
+                    a.setAction("REVERSE");
+                    raw_deck[n++] = a;
+                }
+                a.setWorkout("Sit Ups");
+                a.setType(true);
+                a.setReps(null);
+                for (int i = 0; i < 2; i++) { // Same
+                    a.setAction("SKIP");
+                    raw_deck[n++] = a;
+                    a.setAction("DRAW TWO");
+                    raw_deck[n++] = a;
+                    a.setAction("REVERSE");
+                    raw_deck[n++] = a;
+                }
+                a.setWorkout("Lounges");
+                a.setType(true);
+                a.setReps(null);
+                for (int i = 0; i < 2; i++) { // Same
+                    a.setAction("SKIP");
+                    raw_deck[n++] = a;
+                    a.setAction("DRAW TWO");
+                    raw_deck[n++] = a;
+                    a.setAction("REVERSE");
+                    raw_deck[n++] = a;
+                }
+                a.setWorkout("Rainbow");
+                a.setType(true);
+                a.setReps(null);
+                for (int i = 0; i < 4; i++) {
+                    a.setAction("Wild");
+                    raw_deck[n++] = a;
+                    a.setAction("Wild Draw 4");
+                    raw_deck[n++] = a;
                 }
             }
         }
@@ -195,5 +246,7 @@ class Deck {
         return hand;
     }
 }
+
+
 
 
