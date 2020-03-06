@@ -31,8 +31,8 @@ class Stack {
 
 // Enter Description Here
 class Deck {
-    int num_decks;
-    boolean action_cards;
+    public int num_decks;
+    public boolean action_cards;
     boolean shuffle_together;
 
     //Enter Description Here
