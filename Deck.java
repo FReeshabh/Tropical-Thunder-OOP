@@ -1,5 +1,4 @@
 import java.util.Random;
-// This needs documentation but all the meothod structures are there
 
 // This is a stack for storing the deck of cards
 // The hand is drawn by using pop() method 7 times.
@@ -29,7 +28,7 @@ class Stack {
 }
 
 // Enter Description Here
-class Deck {
+class deck {
     public int num_decks;
     public boolean action_cards;
     boolean shuffle_together;
@@ -37,11 +36,10 @@ class Deck {
     //Enter Description Here
     Card[] populate_deck() {
         int num_cards;
-
         if (action_cards) {
-            num_cards = 108 * num_decks;
+            num_cards = num_decks * 108;
         } else {
-            num_cards = 76 * num_decks;
+            num_cards = num_decks * 76;
         }
 
         Card[] raw_deck = new Card[num_cards];
@@ -159,11 +157,10 @@ class Deck {
     }
 
     // Enter description here
-    Stack shuffle(Card[] raw_deck, boolean shuffle_together) {
+    Stack shuffle(Card[] raw_deck) {
         Stack draw_deck = new Stack();
         Random rand = new Random();
         int num_cards;
-        // Edit code for individual shuffling
 
         if (action_cards) {
             num_cards = 108;
@@ -172,10 +169,10 @@ class Deck {
         }
 
         if (!shuffle_together) {
-            switch(num_decks) {
+            switch (num_decks) {
                 case 1:
                     for (int i = 0; i < num_cards; i++) {
-                        int r = i + rand.nextInt(num_cards - 1);
+                        int r = i + rand.nextInt(num_cards - i);
 
                         Card temp = raw_deck[r];
                         raw_deck[r] = raw_deck[i];
@@ -183,14 +180,14 @@ class Deck {
                     }
                 case 2:
                     for (int i = 0; i < num_cards; i++) {
-                        int r = i + rand.nextInt(num_cards - 1);
+                        int r = i + rand.nextInt(num_cards - i);
 
                         Card temp = raw_deck[r];
                         raw_deck[r] = raw_deck[i];
                         raw_deck[i] = temp;
                     }
                     for (int i = num_cards; i < (2 * num_cards); i++) {
-                        int r = i + rand.nextInt(num_cards - 1);
+                        int r = i + rand.nextInt(num_cards - i);
 
                         Card temp = raw_deck[r];
                         raw_deck[r] = raw_deck[i];
@@ -198,32 +195,30 @@ class Deck {
                     }
                 case 3:
                     for (int i = 0; i < num_cards; i++) {
-                        int r = i + rand.nextInt(num_cards - 1);
+                        int r = i + rand.nextInt(num_cards - i);
 
                         Card temp = raw_deck[r];
                         raw_deck[r] = raw_deck[i];
                         raw_deck[i] = temp;
                     }
                     for (int i = num_cards; i < (2 * num_cards); i++) {
-                        int r = i + rand.nextInt(num_cards - 1);
+                        int r = i + rand.nextInt(num_cards - i);
 
                         Card temp = raw_deck[r];
                         raw_deck[r] = raw_deck[i];
                         raw_deck[i] = temp;
                     }
                     for (int i = (2 * num_cards); i < (3 * num_cards); i++) {
-                        int r = i + rand.nextInt(num_cards - 1);
+                        int r = i + rand.nextInt(num_cards - i);
 
                         Card temp = raw_deck[r];
                         raw_deck[r] = raw_deck[i];
                         raw_deck[i] = temp;
                     }
             }
-        }
-
-        else {
+        } else {
             for (int i = 0; i < num_cards * num_decks; i++) {
-                int r = i + rand.nextInt(num_cards - 1);
+                int r = i + rand.nextInt((num_cards * num_decks) - i);
 
                 Card temp = raw_deck[r];
                 raw_deck[r] = raw_deck[i];
@@ -238,15 +233,12 @@ class Deck {
         return draw_deck;
     }
 
-    Card[] draw_Hand(Stack draw_deck) {
+    Card[] drawNextHand(Stack draw_deck) {
         Card[] hand = new Card[7];
         for (int i = 0; i < 7; i++) {
             if (!(draw_deck.isEmpty())) hand[i] = draw_deck.pop();
         }
         return hand;
     }
+
 }
-
-
-
-
