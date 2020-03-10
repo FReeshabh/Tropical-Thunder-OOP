@@ -1,17 +1,20 @@
+// Authors: Mushfique Khan, Hasan Md. Walid.
+// This class contains 4 methods, 2 methods done by each author.
 import java.util.Random;
 
-// This is a stack for storing the deck of cards
-// The hand is drawn by using pop() method 7 times.
+// Author: Hasan Md. Walid
+// This is a stack for storing the array of cards that is going to be the draw deck
+// The hand is drawn by using pop() method 7 times until stack is empty
 class Stack {
     static final int MAX = 324;
-    int top;
+    public int top;
     Card[] a = new Card[MAX];
 
     Stack() {
         top = -1;
     }
 
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return top == -1;
     }
 
@@ -22,13 +25,13 @@ class Stack {
     }
 
     Card pop() {
-        if (top == -1) return null;
+        if (top < 7) return null;
         return a[top--];
     }
 }
 
-// Enter Description Here
-public class Deck {
+// This class has 3 attributes which take in user input
+public class deck {
     public int num_decks;
     public boolean action_cards;
     boolean shuffle_together;
@@ -39,6 +42,8 @@ public class Deck {
         this.shuffle_together = shuffle_together;
     }
 
+    //Author: Mushfique Khan
+    //This method return a array of Card objects with or without the action cards as specified by the user.
     Card[] populate_deck() throws Exception {
         int num_cards;
         if (action_cards) {
@@ -153,7 +158,10 @@ public class Deck {
         return raw_deck;
     }
 
-
+    //Author: Hasan Md. Walid
+    // This method takes in the Card array returned by the populate_deck method
+    // It returns a deck from which the hand is drawn
+    // This method uses a random number generator to shuffle the Card array
     Stack shuffle(Card[] raw_deck) throws Exception {
         Stack draw_deck = new Stack();
         Random rand = new Random();
@@ -175,6 +183,7 @@ public class Deck {
                         raw_deck[r] = raw_deck[i];
                         raw_deck[i] = temp;
                     }
+                    break;
                 case 2:
                     for (int i = 0; i < num_cards; i++) {
                         int r = i + rand.nextInt(num_cards - i);
@@ -184,12 +193,13 @@ public class Deck {
                         raw_deck[i] = temp;
                     }
                     for (int i = num_cards; i < (2 * num_cards); i++) {
-                        int r = i + rand.nextInt(num_cards - i);
+                        int r = i + rand.nextInt( (2 * num_cards) - i);
 
                         Card temp = raw_deck[r];
                         raw_deck[r] = raw_deck[i];
                         raw_deck[i] = temp;
                     }
+                    break;
                 case 3:
                     for (int i = 0; i < num_cards; i++) {
                         int r = i + rand.nextInt(num_cards - i);
@@ -199,19 +209,20 @@ public class Deck {
                         raw_deck[i] = temp;
                     }
                     for (int i = num_cards; i < (2 * num_cards); i++) {
-                        int r = i + rand.nextInt(num_cards - i);
+                        int r = i + rand.nextInt((2 * num_cards) - i);
 
                         Card temp = raw_deck[r];
                         raw_deck[r] = raw_deck[i];
                         raw_deck[i] = temp;
                     }
                     for (int i = (2 * num_cards); i < (3 * num_cards); i++) {
-                        int r = i + rand.nextInt(num_cards - i);
+                        int r = i + rand.nextInt((3 * num_cards) - i);
 
                         Card temp = raw_deck[r];
                         raw_deck[r] = raw_deck[i];
                         raw_deck[i] = temp;
                     }
+                    break;
             }
         }
         else {
@@ -231,7 +242,9 @@ public class Deck {
         return draw_deck;
     }
 
-
+    // Author: Mushfique Khan
+    // This method takes in the stack of Card objects that has been returned from shuffle
+    // This method returns the next hand for the player until stack is empty
     Card[] drawNextHand(Stack draw_deck) throws Exception {
         Card[] hand = new Card[7];
         for (int i = 0; i < 7; i++) {
@@ -240,3 +253,4 @@ public class Deck {
         return hand;
     }
 }
+
