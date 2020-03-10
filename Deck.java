@@ -31,12 +31,12 @@ class Stack {
 }
 
 // This class has 3 attributes which take in user input
-public class deck {
+public class Deck {
     public int num_decks;
     public boolean action_cards;
     boolean shuffle_together;
 
-    deck(int num_decks, boolean action_cards, boolean shuffle_together) {
+    Deck(int num_decks, boolean action_cards, boolean shuffle_together) {
         this.num_decks = num_decks;
         this.action_cards = action_cards;
         this.shuffle_together = shuffle_together;
