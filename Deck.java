@@ -16,7 +16,7 @@ class Stack {
     }
 
     void push(Card c) {
-        if (top >= MAX - 1) {
+        if (top <= MAX - 1) {
             a[++top] = c;
         }
     }
@@ -28,13 +28,18 @@ class Stack {
 }
 
 // Enter Description Here
-class deck {
+public class Deck {
     public int num_decks;
     public boolean action_cards;
     boolean shuffle_together;
 
-    //Enter Description Here
-    Card[] populate_deck() {
+    deck(int num_decks, boolean action_cards, boolean shuffle_together) {
+        this.num_decks = num_decks;
+        this.action_cards = action_cards;
+        this.shuffle_together = shuffle_together;
+    }
+
+    Card[] populate_deck() throws Exception {
         int num_cards;
         if (action_cards) {
             num_cards = num_decks * 108;
@@ -46,118 +51,110 @@ class deck {
         int n = 0;
 
         for (int j = 0; j < num_decks; j++) {
-            Card c = new Card();
+            Card a = new Card((Integer) null, "Push Ups");
 
-            c.setWorkout("Push Ups"); // Add 10
-            c.setAction("null");
-            c.setType(false);
             for (int i = 0; i < 10; i++) {
-                c.setReps(i);
-                raw_deck[n++] = c;
+                a.repNum = i;
+                raw_deck[n++] = a;
             }
             for (int i = 1; i < 10; i++) { // Add 9
-                c.setReps(i);
-                raw_deck[n++] = c;
+                a.repNum = i;
+                raw_deck[n++] = a;
             }
 
-            c.setWorkout("Squat");
-            c.setAction("null");
-            c.setType(false);
+            Card b = new Card((Integer) null, "Squat");
+
             for (int i = 0; i < 10; i++) { // Same
-                c.setReps(i);
+                b.repNum = i;
+                raw_deck[n++] = b;
+            }
+            for (int i = 1; i < 10; i++) { // Same
+                b.repNum = i;
+                raw_deck[n++] = b;
+            }
+
+            Card c = new Card ((Integer) null, "Sit Ups");
+
+            for (int i = 0; i < 10; i++) { // Same
+                c.repNum = i;
                 raw_deck[n++] = c;
             }
             for (int i = 1; i < 10; i++) { // Same
-                c.setReps(i);
+                c.repNum = i;
                 raw_deck[n++] = c;
             }
 
-            c.setWorkout("Sit Ups");
-            c.setAction("null");
-            c.setType(false);
-            for (int i = 0; i < 10; i++) { // Same
-                c.setReps(i);
-                raw_deck[n++] = c;
-            }
-            for (int i = 1; i < 10; i++) { // Same
-                c.setReps(i);
-                raw_deck[n++] = c;
-            }
+            Card d = new Card((Integer) null, "Lounges");
 
-            c.setWorkout("Lounges");
-            c.setAction("null");
-            c.setType(false);
             for (int i = 0; i < 10; i++) { // Same
-                c.setReps(i);
-                raw_deck[n++] = c;
+                d.repNum = i;
+                raw_deck[n++] = d;
             }
             for (int i = 1; i < 10; i++) { // Same
-                c.setReps(i);
-                raw_deck[n++] = c;
+                d.repNum = i;
+                raw_deck[n++] = d;
             }
 
             if (action_cards) {
-                Card a = new Card();
-                a.setWorkout("Push Ups");
-                a.setType(true);
-                a.setReps(null);
+                Card e = new Card((String) null, "Push Ups");
+
                 for (int i = 0; i < 2; i++) { // Add 8
-                    a.setAction("SKIP");
-                    raw_deck[n++] = a;
-                    a.setAction("DRAW TWO");
-                    raw_deck[n++] = a;
-                    a.setAction("REVERSE");
-                    raw_deck[n++] = a;
+                    e.action = "SKIP";
+                    raw_deck[n++] = e;
+                    e.action = "DRAW TWO";
+                    raw_deck[n++] = e;
+                    e.action = "REVERSE";
+                    raw_deck[n++] = e;
                 }
-                a.setWorkout("Squat");
-                a.setType(true);
-                a.setReps(null);
+
+                Card f = new Card((String) null, "Squat");
+
                 for (int i = 0; i < 2; i++) { // Same
-                    a.setAction("SKIP");
-                    raw_deck[n++] = a;
-                    a.setAction("DRAW TWO");
-                    raw_deck[n++] = a;
-                    a.setAction("REVERSE");
-                    raw_deck[n++] = a;
+                    f.action =  "SKIP";
+                    raw_deck[n++] = f;
+                    f.action = "DRAW TWO";
+                    raw_deck[n++] = f;
+                    f.action = "REVERSE";
+                    raw_deck[n++] = f;
                 }
-                a.setWorkout("Sit Ups");
-                a.setType(true);
-                a.setReps(null);
+
+                Card g = new Card((String) null, "Sit Ups");
+
                 for (int i = 0; i < 2; i++) { // Same
-                    a.setAction("SKIP");
-                    raw_deck[n++] = a;
-                    a.setAction("DRAW TWO");
-                    raw_deck[n++] = a;
-                    a.setAction("REVERSE");
-                    raw_deck[n++] = a;
+                    g.action = "SKIP";
+                    raw_deck[n++] = g;
+                    g.action = "DRAW TWO";
+                    raw_deck[n++] = g;
+                    g.action = "REVERSE";
+                    raw_deck[n++] = g;
                 }
-                a.setWorkout("Lounges");
-                a.setType(true);
-                a.setReps(null);
+
+                Card h = new Card((String) null, "Lounges");
+
                 for (int i = 0; i < 2; i++) { // Same
-                    a.setAction("SKIP");
-                    raw_deck[n++] = a;
-                    a.setAction("DRAW TWO");
-                    raw_deck[n++] = a;
-                    a.setAction("REVERSE");
-                    raw_deck[n++] = a;
+                    h.action = "SKIP";
+                    raw_deck[n++] = h;
+                    h.action = "DRAW TWO";
+                    raw_deck[n++] = h;
+                    h.action = "REVERSE";
+                    raw_deck[n++] = h;
                 }
-                a.setWorkout("Rainbow");
-                a.setType(true);
-                a.setReps(null);
+
+                Card k = new Card((String) null, "Rainbow");
+
                 for (int i = 0; i < 4; i++) {
-                    a.setAction("Wild");
-                    raw_deck[n++] = a;
-                    a.setAction("Wild Draw 4");
-                    raw_deck[n++] = a;
+                    k.action = "Wild";
+                    raw_deck[n++] = k;
+                    k.action = "Wild Draw 4";
+                    raw_deck[n++] = k;
                 }
             }
         }
         return raw_deck;
     }
 
-    // Enter description here
-    Stack shuffle(Card[] raw_deck) {
+
+    Stack shuffle(Card[] raw_deck) throws Exception {
         Stack draw_deck = new Stack();
         Random rand = new Random();
         int num_cards;
@@ -216,7 +213,8 @@ class deck {
                         raw_deck[i] = temp;
                     }
             }
-        } else {
+        }
+        else {
             for (int i = 0; i < num_cards * num_decks; i++) {
                 int r = i + rand.nextInt((num_cards * num_decks) - i);
 
@@ -226,19 +224,19 @@ class deck {
             }
         }
 
-        for (int i = 0; i < num_cards; i++) {
+        for (int i = 0; i < num_cards * num_decks; i++) {
             draw_deck.push(raw_deck[i]);
         }
 
         return draw_deck;
     }
 
-    Card[] drawNextHand(Stack draw_deck) {
+
+    Card[] drawNextHand(Stack draw_deck) throws Exception {
         Card[] hand = new Card[7];
         for (int i = 0; i < 7; i++) {
             if (!(draw_deck.isEmpty())) hand[i] = draw_deck.pop();
         }
         return hand;
     }
-
 }
