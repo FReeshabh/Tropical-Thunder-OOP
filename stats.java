@@ -1,5 +1,7 @@
 public class stats {
-getTotalReps(Card[] hand) {
+  stats() {
+    int PushupReps, PushupRepskipped, SquatReps, SitupReps, LoungeReps, SquatRepskipped, SitupRepskipped, LoungeRepskipped;
+    public void getTotalReps(Card[] hand) {
   for(i = 0; i < 7; i++) {
     if(hand[i].getWorkout == "Push Ups")
       {
@@ -30,10 +32,10 @@ getTotalReps(Card[] hand) {
     if(LoungeReps >= PushupReps && LoungeReps >= SitupReps && LoungeReps >= SquatReps){
       BignReps = LoungeReps;
     }
-  getTotalRepSkipped(Card[] hand)
+  getTotalRepSkipped(Card[] hand);
 }
 
-getTotalRepSkipped(Card[] hand){
+public void getTotalRepSkipped(){
   for(i = 0; i < 7; i++) {
     if(hand[i].getWorkout == "skip" && "BLUE")
       {
@@ -53,4 +55,6 @@ getTotalRepSkipped(Card[] hand){
       }
   }
 }
+
+  }
 }
