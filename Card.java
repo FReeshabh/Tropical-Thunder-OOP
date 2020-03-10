@@ -3,7 +3,7 @@
 
 public class Card{
 	boolean isAction;
-	int repNum;
+	Integer repNum;
 	String exercise;
 	String action;
 
@@ -12,7 +12,7 @@ public class Card{
 	}
 
 	//Constructor for number cards - given the number and color/workout
-	Card(int reps, String workout){
+	Card(Integer reps, String workout){
 		setType(false);
 		setWorkout(workout);
 		setReps(reps);
@@ -35,7 +35,7 @@ public class Card{
 	}
 
 	//sets the number of reps for this individual card
-	public void setReps(int reps){
+	public void setReps(Integer reps){
 		repNum = reps;
 	}
 
@@ -55,7 +55,7 @@ public class Card{
 	}
 
 	//returns the reps aka the number on the card
-	public int getReps(){
+	public Integer getReps(){
 		return repNum;
 	}
 
